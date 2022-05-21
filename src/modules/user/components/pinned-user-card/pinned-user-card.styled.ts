@@ -1,19 +1,21 @@
 import styled from 'styled-components/native';
-import { hPx } from 'styles/pixel-ratio';
+// components
+import { Typography } from 'modules/core/components/typography';
+// utils
+import { hPx, wPx } from 'styles/pixel-ratio';
 
 export const Root = styled.View`
   width: ${hPx(56)}px;
-  margin-right: 10px;
+  margin-right: ${wPx(10)}px;
+  align-items: center;
 `;
 
-export const Name = styled.Text.attrs({
+export const Name = styled(Typography).attrs({
+  variant: 'small',
   numberOfLines: 1,
 })`
-  font-style: normal;
+  color: ${(props) => props.theme.colors.dark};
   font-weight: 400;
-  font-size: 10px;
-  line-height: 16px;
-  color: #0f1828;
   text-align: center;
-  margin-top: 4px;
+  margin-top: ${hPx(8)}px;
 `;

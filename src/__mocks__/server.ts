@@ -5,6 +5,7 @@ import {
   AnyModels,
   Registry as MirageRegistry,
 } from 'miragejs/-types';
+import faker from '@faker-js/faker';
 // data
 import { usersList } from './resources/users-list';
 
@@ -16,15 +17,22 @@ declare var window:
   | { server: undefined };
 
 export const createApiServer = () => {
-  if (window.server) {
+  if (window.server && typeof window.shutdown === 'function') {
     window.shutdown();
   }
 
   window.server = createServer({
     routes() {
-      this.get('/api/users/list', () => {
+      this.namespace = '/api';
+
+      this.get('/users/list', () => {
         return {
           list: usersList,
+        };
+      });
+      this.get('/users/:id/online', () => {
+        return {
+          isOnline: faker.datatype.boolean(),
         };
       });
     },

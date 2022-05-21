@@ -1,11 +1,10 @@
 import React, { FC } from 'react';
-// components
-import { SafeAreaView } from 'modules/core/components/safe-area-view';
 
 import type { ScreenLayoutProps } from './screen-layout.interface';
+import { Root } from './screen-layout.styled';
 
 const ScreenLayout: FC<ScreenLayoutProps> = ({ children }) => {
-  return <SafeAreaView>{children}</SafeAreaView>;
+  return <Root>{children}</Root>;
 };
 
 export { ScreenLayout };

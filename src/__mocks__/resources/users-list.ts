@@ -39,4 +39,22 @@ export const usersList: User[] = [
     firstName: faker.name.firstName('female'),
     lastName: faker.name.lastName('female'),
   },
+  {
+    id: faker.datatype.uuid(),
+    avatar: faker.image.avatar(),
+    firstName: faker.name.firstName('female'),
+    lastName: faker.name.lastName('female'),
+  },
+  {
+    id: faker.datatype.uuid(),
+    avatar: faker.image.avatar(),
+    firstName: faker.name.firstName('female'),
+    lastName: faker.name.lastName('female'),
+  },
+  {
+    id: faker.datatype.uuid(),
+    avatar: faker.image.avatar(),
+    firstName: faker.name.firstName('female'),
+    lastName: faker.name.lastName('female'),
+  },
 ];
