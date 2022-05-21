@@ -5,9 +5,12 @@ import {
   AnyModels,
   Registry as MirageRegistry,
 } from 'miragejs/-types';
-import faker from '@faker-js/faker';
-// data
-import { usersList } from './resources/users-list';
+// models
+import { models } from './models/models';
+// seeds
+import { seeds } from './seeds/seeds';
+// routes
+import { routes } from './routes/routes';
 
 declare var window:
   | {
@@ -21,20 +24,9 @@ export const createApiServer = () => {
     window.shutdown();
   }
 
-  window.server = createServer({
-    routes() {
-      this.namespace = '/api';
-
-      this.get('/users/list', () => {
-        return {
-          list: usersList,
-        };
-      });
-      this.get('/users/:id/online', () => {
-        return {
-          isOnline: faker.datatype.boolean(),
-        };
-      });
-    },
+  window.server = createServer<typeof models, AnyFactories>({
+    models,
+    seeds,
+    routes,
   });
 };
