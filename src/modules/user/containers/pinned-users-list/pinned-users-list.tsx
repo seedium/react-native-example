@@ -1,22 +1,27 @@
 import React, { FC, useCallback } from 'react';
 import { FlatList, ListRenderItem, TouchableOpacity } from 'react-native';
+import { useTheme } from 'styled-components/native';
+import { USER_PINNED, User } from '@packages/chat-types/resources/user.types';
 // components
 import { PinnedUserCard } from 'modules/user/components/pinned-user-card/pinned-user-card';
+import { Typography } from 'modules/core/components/typography';
+import { Icon } from 'modules/core/components/icon';
 // hooks
 import { useUserListQuery } from 'modules/user/hooks/use-user-list-query';
 // types
-import type { User } from 'modules/user/types/user.types';
+// utils
+import { hPx } from 'styles/pixel-ratio';
 
 import type { PinnedUsersListProps } from './pinned-users-list.interface';
-import { styles, EndPadding, HeaderWrapper } from './pinned-users-list.styled';
-import { useTheme } from 'styled-components/native';
-import { hPx } from '../../../../styles/pixel-ratio';
-import { Typography } from '../../../core/components/typography';
-import { Icon } from '../../../core/components/icon';
+import { EndPadding, HeaderWrapper, styles } from './pinned-users-list.styled';
 
 const PinnedUsersList: FC<PinnedUsersListProps> = () => {
   const theme = useTheme();
-  const userListQuery = useUserListQuery();
+  const userListQuery = useUserListQuery({
+    filter: {
+      pinned: USER_PINNED.PINNED,
+    },
+  });
 
   const renderItem: ListRenderItem<User> = useCallback(({ item }) => {
     return <PinnedUserCard user={item} />;

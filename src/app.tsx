@@ -1,6 +1,6 @@
 import React from 'react';
 import { Chats } from './navigation/screens/chats';
-import { createApiServer } from '__mocks__/server';
+import { createApiServer } from '../@packages/server/server';
 // containers
 import { ReactQueryProvider } from 'modules/core/containers/react-query-provider';
 import { ThemeProvider } from 'modules/core/containers/theme-provider';

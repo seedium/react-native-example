@@ -1,10 +1,9 @@
 import { useQuery } from 'react-query';
-import { User } from '../types/user.types';
+import { getUsersList } from '@packages/api-client/user-api';
+import { GetUsersListParams } from '@packages/chat-types/api/user-api.types';
 
 const USER_LIST_CACHE_KEY = 'USER_LIST';
 
-export const useUserListQuery = () => {
-  return useQuery<{ list: User[] }>(USER_LIST_CACHE_KEY, () => {
-    return fetch('/api/users/list').then((res) => res.json());
-  });
+export const useUserListQuery = (params?: GetUsersListParams) => {
+  return useQuery(USER_LIST_CACHE_KEY, () => getUsersList(params));
 };

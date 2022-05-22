@@ -1,6 +1,5 @@
 import { ModelDefinition } from 'miragejs/-types';
 import { Model } from 'miragejs';
-// types
-import type { User } from 'modules/user/types/user.types';
+import { User } from '@packages/chat-types/resources/user.types';
 
 export const UserModel: ModelDefinition<User> = Model;

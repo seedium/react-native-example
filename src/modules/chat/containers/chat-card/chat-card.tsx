@@ -3,7 +3,7 @@ import faker from '@faker-js/faker';
 // components
 import { Avatar } from 'modules/user/components/avatar';
 // hooks
-// types
+import { useUserOnlineQuery } from 'modules/user/hooks/use-user-online-query';
 
 import type { ChatCardProps } from './chat-card.interface';
 import {
@@ -16,13 +16,18 @@ import {
   MessagePreview,
 } from './chat-card.styled';
 
-const ChatCard: FC<ChatCardProps> = () => {
+const ChatCard: FC<ChatCardProps> = ({ user }) => {
+  const userOnlineQuery = useUserOnlineQuery(user.id);
+
   return (
     <Root>
-      <Avatar uri={faker.image.avatar()} isOnline={faker.datatype.boolean()} />
+      <Avatar
+        uri={user.avatar}
+        isOnline={Boolean(userOnlineQuery.data?.isOnline)}
+      />
       <Info>
         <InfoTop>
-          <Title>{faker.name.firstName()}</Title>
+          <Title>{user.firstName + ' ' + user.lastName}</Title>
           <Time>3m ago</Time>
         </InfoTop>
         <InfoBottom>

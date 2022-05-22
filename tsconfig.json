@@ -15,7 +15,10 @@
     "strict": true,                                      /* Enable all strict type-checking options. */
     "skipLibCheck": true,                                /* Skip type checking all .d.ts files. */
     "types": ["styled-components-react-native"],
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "paths": {
+      "@packages/*": ["../@packages/*"]
+    }
   },
   "exclude": [
     "node_modules", "babel.config.js", "metro.config.js", "jest.config.js"
