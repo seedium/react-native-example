@@ -1,8 +1,8 @@
 import React, { FC, useCallback } from 'react';
 import { FlatList, ListRenderItem } from 'react-native';
-import { ChatIncludedDisplayInfo } from '@packages/chat-types/resources/chat.types';
+import type { ChatIncludedDisplayInfo } from '@chat-types/resources/chat.types';
 // components
-import { ChatCard } from 'modules/chat/containers/chat-card';
+import { ChatCard } from 'modules/chat/components/chat-card';
 // hooks
 import { useChatsListQuery } from 'modules/chat/hooks/use-chats-list-query';
 // utils
@@ -15,7 +15,13 @@ const ChatsList: FC<ChatsListProps> = () => {
 
   const renderItem: ListRenderItem<ChatIncludedDisplayInfo> = useCallback(
     ({ item }) => {
-      return <ChatCard user={item.user} />;
+      return (
+        <ChatCard
+          chatId={item.id}
+          user={item.user}
+          message={item.lastMessage}
+        />
+      );
     },
     []
   );
@@ -27,6 +33,7 @@ const ChatsList: FC<ChatsListProps> = () => {
       renderItem={renderItem}
       data={chatsListQuery.data?.list ?? []}
       ItemSeparatorComponent={Separator}
+      keyExtractor={(chat) => chat.id}
     />
   );
 };

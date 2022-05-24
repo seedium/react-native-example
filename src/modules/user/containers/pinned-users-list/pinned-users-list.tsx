@@ -1,7 +1,7 @@
 import React, { FC, useCallback } from 'react';
 import { FlatList, ListRenderItem, TouchableOpacity } from 'react-native';
 import { useTheme } from 'styled-components/native';
-import { USER_PINNED, User } from '@packages/chat-types/resources/user.types';
+import { USER_PINNED, User } from '@chat-types/resources/user.types';
 // components
 import { PinnedUserCard } from 'modules/user/components/pinned-user-card/pinned-user-card';
 import { Typography } from 'modules/core/components/typography';

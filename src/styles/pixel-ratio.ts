@@ -2,8 +2,8 @@ import { Dimensions, PixelRatio } from 'react-native';
 
 const { width, height } = Dimensions.get('screen');
 
-const designHeight = 896;
-const designWidth = 414;
+const designHeight = 812;
+const designWidth = 375;
 
 const widthRatio = width / designWidth;
 const heightRation = height / designHeight;

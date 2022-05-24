@@ -7,7 +7,9 @@ module.exports = {
       {
         root: ['./src'],
         alias: {
-          '@packages': './@packages',
+          '@api-client': './packages/@api-client',
+          '@chat-types': './packages/@chat-types',
+          '@server': './packages/@server',
         },
         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
       },

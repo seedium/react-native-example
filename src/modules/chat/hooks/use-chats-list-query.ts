@@ -1,6 +1,6 @@
-import { GetChatsListParams } from '@packages/chat-types/api/chat-api.types';
 import { useQuery } from 'react-query';
-import { getChatsList } from '@packages/api-client/chat-api';
+import { GetChatsListParams } from '@chat-types/api/chat-api.types';
+import { getChatsList } from '@api-client/chat-api';
 
 const CHATS_LIST_CACHE_KEY = 'CHATS_LIST';
 

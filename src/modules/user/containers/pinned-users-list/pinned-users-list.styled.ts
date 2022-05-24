@@ -1,12 +1,14 @@
 import { StyleSheet } from 'react-native';
 import { hPx, wPx } from 'styles/pixel-ratio';
 import styled from 'styled-components/native';
+// styles
+import { theme } from 'styles/theme';
 
 export const styles = StyleSheet.create({
   root: {
     flexGrow: 0,
     width: '100%',
-    backgroundColor: '#f7f7fc',
+    backgroundColor: theme.colors.grayLight,
   },
   content: {
     alignItems: 'flex-end',

@@ -17,7 +17,9 @@
     "types": ["styled-components-react-native"],
     "baseUrl": "src",
     "paths": {
-      "@packages/*": ["../@packages/*"]
+      "@api-client/*": ["../packages/@api-client/*"],
+      "@chat-types/*": ["../packages/@chat-types/*"],
+      "@server/*": ["../packages/@server/*"]
     }
   },
   "exclude": [
