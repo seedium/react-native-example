@@ -34,7 +34,7 @@ export const chatRoutes = (
           });
           if (chatMessages.length > 0) {
             const lastMessage = chatMessages.reduce(function (p, v) {
-              return p.updatedAt > v.updatedAt ? p : v;
+              return p.createdAt > v.createdAt ? p : v;
             });
 
             return {

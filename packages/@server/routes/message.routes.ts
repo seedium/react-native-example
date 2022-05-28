@@ -31,6 +31,11 @@ export const messageRoutes = (
         }));
       },
       (messages) => {
+        messages.sort((a, b) => b.createdAt - a.createdAt);
+
+        return messages;
+      },
+      (messages) => {
         return {
           list: messages as unknown as MessageIncludedDisplayInfo[],
           length: messages.length,

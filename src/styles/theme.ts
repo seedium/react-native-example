@@ -3,6 +3,7 @@ export type Theme = {
     primary: string;
     dark: string;
     gray: string;
+    grayDark: string;
     graySemiLight: string;
     grayLight: string;
     green: string;
@@ -30,6 +31,7 @@ export const theme: Theme = {
     primary: '#002DE3',
     dark: '#0F1828',
     gray: '#ADB5BD',
+    grayDark: '#A4A4A4',
     graySemiLight: '#EDEDED',
     grayLight: '#F7F7FC',
     green: '#2CC069',

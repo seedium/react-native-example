@@ -3,8 +3,8 @@ import React, { FC } from 'react';
 import { Header } from 'modules/core/components/header';
 import { ScreenLayout } from 'modules/core/components/screen-layout';
 // containers
-import { MessagesList } from 'modules/chat/containers/messages-list';
-import { MessageInput } from 'modules/chat/containers/message-input';
+import { MessagesList } from 'modules/message/containers/messages-list';
+import { MessageInput } from 'modules/message/containers/message-input';
 
 import type { ChatProps } from './chat.interface';
 

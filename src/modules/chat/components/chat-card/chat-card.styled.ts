@@ -33,8 +33,9 @@ export const Title = styled(Typography).attrs({
 export const Time = styled(Typography).attrs({
   variant: 'body2',
 })`
-  color: ${(props) => props.theme.colors.gray};
+  color: ${(props) => props.theme.colors.grayDark};
   margin-left: auto;
+  font-weight: normal;
 `;
 
 export const MessagePreview = styled(Typography).attrs({

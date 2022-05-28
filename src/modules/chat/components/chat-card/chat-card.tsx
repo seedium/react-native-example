@@ -1,5 +1,6 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, useCallback, useMemo } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { formatDistanceToNowStrict } from 'date-fns';
 // components
 import { Avatar } from 'modules/user/components/avatar';
 // hooks
@@ -20,6 +21,14 @@ const ChatCard: FC<ChatCardProps> = ({ chatId, user, message }) => {
   const navigation = useNavigation<any>();
   // queries
   const userOnlineQuery = useUserOnlineQuery(user.id);
+  // memo
+  const messageTime = useMemo<string | null>(() => {
+    if (!message) {
+      return null;
+    }
+
+    return `${formatDistanceToNowStrict(message.createdAt)} ago`;
+  }, [message]);
 
   const handleChatPress = useCallback(() => {
     navigation.navigate('chat', {
@@ -37,7 +46,7 @@ const ChatCard: FC<ChatCardProps> = ({ chatId, user, message }) => {
       <Info>
         <InfoTop>
           <Title>{user.firstName + ' ' + user.lastName}</Title>
-          {!!message && <Time>{message.updatedAt}</Time>}
+          {!!messageTime && <Time>{messageTime}</Time>}
         </InfoTop>
         <InfoBottom>
           {!!message && <MessagePreview>{message.text}</MessagePreview>}

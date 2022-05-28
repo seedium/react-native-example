@@ -8,7 +8,6 @@ import { Typography } from 'modules/core/components/typography';
 import { Icon } from 'modules/core/components/icon';
 // hooks
 import { useUserListQuery } from 'modules/user/hooks/use-user-list-query';
-// types
 // utils
 import { hPx } from 'styles/pixel-ratio';
 
