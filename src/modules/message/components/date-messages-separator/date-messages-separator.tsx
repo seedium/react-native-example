@@ -3,6 +3,7 @@ import React, { FC, memo } from 'react';
 import type { DateMessagesSeparatorProps } from './date-messages-separator.interface';
 import { Root } from './date-messages-separator.styled';
 
+// tood: in progress
 const DateMessagesSeparator: FC<DateMessagesSeparatorProps> = memo(
   ({ date }) => {
     if (!date) {
