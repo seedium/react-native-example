@@ -10,29 +10,14 @@ import type { MessageIncludedDisplayInfo } from '@chat-types/resources/message.t
 
 import type { MessagesListProps } from './messages-list.interface';
 import { styles } from './messages-list.styled';
-import { isSameDay } from 'date-fns';
 
 const MessagesList: FC<MessagesListProps> = ({ chatId }) => {
   // queries
   const messagesListQuery = useMessagesListQuery({ chatId });
 
   const renderItem: ListRenderItem<MessageIncludedDisplayInfo> = useCallback(
-    ({ item, index, separators }) => {
-      if (
-        messagesListQuery.data &&
-        messagesListQuery.data.list.length > index + 1 &&
-        !isSameDay(
-          item.createdAt,
-          messagesListQuery.data.list[index + 1].createdAt
-        )
-      ) {
-        separators.updateProps('leading', {
-          date: messagesListQuery.data.list[index + 1].createdAt,
-        });
-      }
-      return <MessageCard key={item.id} message={item} />;
-    },
-    [messagesListQuery.data]
+    ({ item }) => <MessageCard key={item.id} message={item} />,
+    []
   );
 
   return (
