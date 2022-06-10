@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components/native';
+// utils
+import { hPx } from 'styles/pixel-ratio';
 
 import type { TypographyProps } from './typography.interface';
-import { hPx } from '../../../../styles/pixel-ratio';
 
 const Typography = styled.Text<TypographyProps>`
   font-style: normal;
